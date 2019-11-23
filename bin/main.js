@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const semver = require("semver");
 const chalk = require("chalk");
 const validatePackageName = require('validate-npm-package-name');
@@ -8,8 +9,6 @@ const symbols = require("log-symbols");
 const readline = require('readline');
 const download = require('download-git-repo');
 const inquirer = require('inquirer');
-
-
 
 function checkNodeVersion(wanted) {
     if(!semver.satisfies(process.version, wanted)) {
@@ -152,7 +151,7 @@ async function create(projectName, options) {
                 console.log(symbols.error, chalk.red(err));
             } else {
                 spinner.succeed();
-                console.log(symbols.success, chalk.green('下载完成，请尽情使用吧~😄~'));
+                console.log(symbols.success, chalk.green(`🎉  项目创建成功 ${projectName}.\n👉开始愉快开发吧`));
             }
         }
     );
